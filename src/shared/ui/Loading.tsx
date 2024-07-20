@@ -4,7 +4,7 @@ export default function Loading() {
       <div className="flex justify-center">
         <img
           className="size-16 animate-spin fill-gray-400"
-          src="/loading.svg"
+          src="/image/loading.svg"
         />
       </div>
       <p>검색 결과가 없습니다</p>
