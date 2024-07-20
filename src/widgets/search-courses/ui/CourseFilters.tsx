@@ -6,7 +6,7 @@ import {
   PRICE_TAG,
   PROGRAMMING_LANGUAGE_TAG,
 } from '@shared/constants';
-import Tag from '@shared/ui/Tag.tsx';
+import { Tag } from '@shared/ui';
 import { memo, useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
