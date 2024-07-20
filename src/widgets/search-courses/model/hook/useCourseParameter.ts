@@ -73,6 +73,7 @@ export default function useCourseParameter() {
   useEffect(() => {
     const newFilterConditions = buildFilterConditions(searchParams);
 
+    newFilterConditions.title = `%${searchParams.get('keyword')}%`;
     setFilterConditions(newFilterConditions);
   }, [searchParams]);
 
