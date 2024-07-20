@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="flex justify-center">
+    <div className="font-Pretendard flex justify-center">
       <Providers>
         <Routes>
           <Route path="/:page?" element={<SearchCoursesPage />} />
