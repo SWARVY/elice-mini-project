@@ -26,7 +26,7 @@ export default function CoursePagination({
   );
 
   return (
-    <div className="mt-6 flex w-full justify-center gap-x-2">
+    <div className="flex w-full justify-center gap-x-2">
       {pagination.map((page) => (
         <button
           type="button"

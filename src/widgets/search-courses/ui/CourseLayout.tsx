@@ -6,7 +6,7 @@ export default function CourseLayout() {
   const filterConditions = useCourseParameter();
 
   return (
-    <div className="space-y-4">
+    <div className="size-full space-y-4">
       <SearchHeader />
       <CourseList filterConditions={filterConditions} />
     </div>
