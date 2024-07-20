@@ -32,17 +32,13 @@ function CardFooter({ children }: PropsWithChildren) {
 
 function CardContentWrapper({ children }: PropsWithChildren) {
   return (
-    <div className="flex h-[calc(100%-145px)] flex-col justify-between p-5">
-      {children}
-    </div>
+    <div className="flex min-h-52 flex-col justify-between p-5">{children}</div>
   );
 }
 
 export default function Card({ children }: PropsWithChildren) {
   return (
-    <div className="h-80 w-full overflow-hidden rounded-md border">
-      {children}
-    </div>
+    <div className="w-full overflow-hidden rounded-md border">{children}</div>
   );
 }
 

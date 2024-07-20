@@ -34,8 +34,8 @@ export default function CoursePagination({
           className={cn(
             'flex font-extralight size-6 text-sm items-center justify-center rounded-md p-2',
             page === currentPage
-              ? 'bg-purple-950 text-white'
-              : 'text-gray-500 hover:bg-purple-200 hover:font-bold hover:text-purple-950',
+              ? 'transition-colors duration-300 bg-violet-800 text-white hover:bg-violet-100 hover:text-violet-800 hover:font-bold'
+              : 'text-gray-500 hover:bg-violet-100 hover:font-bold hover:text-violet-800',
           )}
           onClick={() => paginationButtonHandler(page)}>
           {page}
