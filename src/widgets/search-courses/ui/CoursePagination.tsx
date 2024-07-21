@@ -16,6 +16,12 @@ interface ChevronButtonProps extends HTMLAttributes<HTMLButtonElement> {
   disabled: boolean;
 }
 
+interface PaginationButtonProps {
+  page: number;
+  currentPage: number;
+  paginationButtonHandler: (page: number) => void;
+}
+
 function ChevronButton({
   type,
   callback,
@@ -43,6 +49,27 @@ function ChevronButton({
   );
 }
 
+function PaginationButton({
+  page,
+  currentPage,
+  paginationButtonHandler,
+}: PaginationButtonProps) {
+  return (
+    <button
+      type="button"
+      key={page}
+      className={cn(
+        'flex font-extralight size-6 text-sm items-center justify-center rounded-md p-2',
+        page === currentPage
+          ? 'transition-colors duration-300 bg-violet-900 text-white hover:bg-violet-100 hover:text-violet-800 hover:font-bold'
+          : 'text-gray-500 hover:bg-violet-100 hover:font-bold hover:text-violet-800',
+      )}
+      onClick={() => paginationButtonHandler(page)}>
+      {page}
+    </button>
+  );
+}
+
 export default function CoursePagination({
   currentPage,
   size,
@@ -53,7 +80,6 @@ export default function CoursePagination({
 
   const paginationButtonHandler = useCallback(
     (page: number) => {
-      searchParams.delete('page');
       searchParams.set('page', page.toString());
       navigate(`/?${searchParams.toString()}`);
     },
@@ -78,18 +104,12 @@ export default function CoursePagination({
         disabled={currentPage === 1}
       />
       {pagination.map((page) => (
-        <button
-          type="button"
+        <PaginationButton
           key={page}
-          className={cn(
-            'flex font-extralight size-6 text-sm items-center justify-center rounded-md p-2',
-            page === currentPage
-              ? 'transition-colors duration-300 bg-violet-800 text-white hover:bg-violet-100 hover:text-violet-800 hover:font-bold'
-              : 'text-gray-500 hover:bg-violet-100 hover:font-bold hover:text-violet-800',
-          )}
-          onClick={() => paginationButtonHandler(page)}>
-          {page}
-        </button>
+          page={page}
+          currentPage={currentPage}
+          paginationButtonHandler={paginationButtonHandler}
+        />
       ))}
       <ChevronButton
         type="next"
