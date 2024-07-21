@@ -48,13 +48,6 @@ function buildFilterConditions(
         .map((tagName) => queries.get(tagName)!)
         .filter((query): query is Query => query !== undefined);
 
-      console.log(queries.get('챌린지'));
-
-      console.log(
-        'orConditions : ',
-        tagNameList.filter((tagName) => queries.has(tagName)),
-      );
-
       if (orConditions.length > 0) {
         newFilterConditions.$and!.push({ $or: orConditions });
       }
