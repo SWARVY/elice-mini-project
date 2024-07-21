@@ -60,6 +60,7 @@ export default memo(function CourseFilters() {
       const copySearchParams = new URLSearchParams(searchParams.toString());
 
       copySearchParams.append(key, value);
+      copySearchParams.set('page', '1');
       navigate(`/?${decodeURI(copySearchParams.toString())}`);
       setSearchParams(copySearchParams);
     },
@@ -73,6 +74,7 @@ export default memo(function CourseFilters() {
       const filteredParams = targetKey.filter((val) => val !== value);
 
       copySearchParams.delete(key);
+      copySearchParams.set('page', '1');
 
       filteredParams.forEach((val) => {
         copySearchParams.append(key, val);
