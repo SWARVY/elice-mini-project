@@ -21,11 +21,11 @@ export default function CourseItem({ ...props }: Course) {
       <Card.ContentWrapper>
         <Card.Description>
           <div className="space-y-2">
-            <p className="text-[12px] font-bold text-violet-900">
+            <p className="text-[12px] font-bold text-elice-violet">
               {selectedCategory}
             </p>
             <p className="line-clamp-2 font-bold">{props.title}</p>
-            <p className="line-clamp-2 text-sm text-gray-500">
+            <p className="line-clamp-2 text-sm text-elice-dark-gray">
               {props.short_description}
             </p>
           </div>
@@ -37,7 +37,7 @@ export default function CourseItem({ ...props }: Course) {
                 ₩{Number(props.price).toLocaleString()}
               </p>
             ) : (
-              <p className="font-bold text-green-600">무료</p>
+              <p className="font-bold text-elice-green">무료</p>
             )}
           </>
         </Card.Footer>

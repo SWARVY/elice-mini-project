@@ -33,8 +33,8 @@ function ChevronButton({
       className={cn(
         'flex size-6 items-center justify-center rounded-md',
         disabled
-          ? 'cursor-not-allowed text-gray-400'
-          : 'transition-colors hover:bg-violet-100',
+          ? 'cursor-not-allowed text-elice-dark-gray'
+          : 'transition-colors hover:bg-elice-lightest-violet',
       )}
       type="button"
       onClick={callback}
@@ -61,8 +61,8 @@ function PaginationButton({
       className={cn(
         'flex font-extralight size-6 text-sm items-center justify-center rounded-md p-2',
         page === currentPage
-          ? 'transition-colors duration-300 bg-violet-900 text-white hover:bg-violet-100 hover:text-violet-800 hover:font-bold'
-          : 'text-gray-500 hover:bg-violet-100 hover:font-bold hover:text-violet-800',
+          ? 'transition-colors duration-300 bg-elice-violet text-white hover:bg-elice-lightest-violet hover:text-elice-violet-hover hover:font-bold'
+          : 'text-elice-dark-gray hover:bg-elice-lightest-violet hover:font-bold hover:text-elice-violet',
       )}
       onClick={() => paginationButtonHandler(page)}>
       {page}

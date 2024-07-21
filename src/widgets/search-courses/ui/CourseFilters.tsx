@@ -26,8 +26,8 @@ function FilterItems<T extends string>({
   callback,
 }: FilterItemProps<T>) {
   return (
-    <div className="flex items-stretch bg-slate-50">
-      <p className="h-auto w-24 shrink-0 border-r px-[14px] py-4 text-[12px] font-bold text-gray-800">
+    <div className="flex items-stretch bg-elice-light-gray">
+      <p className="h-auto w-24 shrink-0 border-r px-[14px] py-4 text-[12px] font-bold text-elice-dark-gray">
         {title}
       </p>
       <div className="flex h-auto flex-1 flex-wrap bg-white px-2">

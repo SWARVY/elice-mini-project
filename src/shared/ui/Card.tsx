@@ -34,7 +34,9 @@ function CardFooter({ children }: PropsWithChildren) {
 
 function CardContentWrapper({ children }: PropsWithChildren) {
   return (
-    <div className="flex min-h-60 flex-col justify-between p-5">{children}</div>
+    <div className="flex min-h-60 flex-col justify-between bg-white p-5">
+      {children}
+    </div>
   );
 }
 
