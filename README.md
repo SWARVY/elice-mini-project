@@ -1,5 +1,7 @@
 # 신현호 ICT elice-mini-project
 
+<img width="1282" alt="image" src="https://github.com/user-attachments/assets/0e0c1db4-4485-4ce2-b12a-866f3c6183dc">
+
 ## 시작하며
 
 **본 과제는 `Elice`의 ICT 인턴십 과제이며, 문제에 대한 저작권은 모두 `Elice`에 있습니다.**
