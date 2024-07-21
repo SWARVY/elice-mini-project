@@ -21,7 +21,7 @@ export default function SearchInput() {
   }
 
   return (
-    <div className="flex items-center rounded-[0.250rem] border border-gray-300">
+    <div className="flex items-center rounded-[0.250rem] border border-gray-300 bg-white">
       <FaMagnifyingGlass className="mx-4 fill-gray-600" />
       <div className="w-full py-3 text-sm">
         <input
