@@ -1,11 +1,46 @@
+import { CONTENTS_PER_PAGE } from '@shared/constants';
 import { cn } from '@shared/util';
 import { usePagination } from '@widgets/search-courses';
-import { useCallback } from 'react';
+import { HTMLAttributes, useCallback } from 'react';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 interface CoursePaginationProps {
   currentPage: number;
   size: number;
+}
+
+interface ChevronButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  type: 'prev' | 'next';
+  callback: () => void;
+  disabled: boolean;
+}
+
+function ChevronButton({
+  type,
+  callback,
+  disabled,
+  ...props
+}: ChevronButtonProps) {
+  return (
+    <button
+      className={cn(
+        'flex size-6 items-center justify-center rounded-md',
+        disabled
+          ? 'cursor-not-allowed text-gray-400'
+          : 'transition-colors hover:bg-violet-100',
+      )}
+      type="button"
+      onClick={callback}
+      disabled={disabled}
+      {...props}>
+      {type === 'prev' ? (
+        <FiChevronLeft className="size-[14px]" />
+      ) : (
+        <FiChevronRight className="size-[14px]" />
+      )}
+    </button>
+  );
 }
 
 export default function CoursePagination({
@@ -25,8 +60,23 @@ export default function CoursePagination({
     [searchParams],
   );
 
+  const chevronButtonHandler = useCallback(
+    (type: 'prev' | 'next') => {
+      type === 'prev'
+        ? searchParams.set('page', (currentPage - 1).toString())
+        : searchParams.set('page', (currentPage + 1).toString());
+      navigate(`/?${searchParams.toString()}`);
+    },
+    [navigate, searchParams],
+  );
+
   return (
     <div className="flex w-full justify-center gap-x-2">
+      <ChevronButton
+        type="prev"
+        callback={() => chevronButtonHandler('prev')}
+        disabled={currentPage === 1}
+      />
       {pagination.map((page) => (
         <button
           type="button"
@@ -41,6 +91,11 @@ export default function CoursePagination({
           {page}
         </button>
       ))}
+      <ChevronButton
+        type="next"
+        callback={() => chevronButtonHandler('next')}
+        disabled={currentPage === Math.ceil(size / CONTENTS_PER_PAGE)}
+      />
     </div>
   );
 }
