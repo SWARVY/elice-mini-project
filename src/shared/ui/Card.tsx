@@ -12,7 +12,9 @@ function CardImage({ src, alt, type, ...props }: CardImageProps) {
     <div className="flex h-[145px] items-center justify-center bg-gray-700">
       <img
         className={cn(
-          type === 'image' ? 'size-full object-cover' : 'size-[104px]',
+          type === 'image'
+            ? 'size-full object-cover'
+            : 'object-contain size-[104px]',
         )}
         src={src}
         alt={alt}
@@ -32,7 +34,7 @@ function CardFooter({ children }: PropsWithChildren) {
 
 function CardContentWrapper({ children }: PropsWithChildren) {
   return (
-    <div className="flex min-h-52 flex-col justify-between p-5">{children}</div>
+    <div className="flex min-h-60 flex-col justify-between p-5">{children}</div>
   );
 }
 

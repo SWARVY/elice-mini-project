@@ -6,6 +6,7 @@ export interface Course {
   logo_file_url: string;
   price: string;
   status: number;
+  taglist: string[];
 }
 
 export interface CourseResponse {
