@@ -23,6 +23,7 @@ interface FilterCategory {
   name: string;
   queries: Map<string, Query>;
 }
+
 function buildFilterConditions(
   searchParams: URLSearchParams,
 ): FilterConditions {
@@ -45,8 +46,7 @@ function buildFilterConditions(
     if (tagNameList.length > 0) {
       const orConditions = tagNameList
         .filter((tagName) => queries.has(tagName))
-        .map((tagName) => queries.get(tagName)!)
-        .filter((query): query is Query => query !== undefined);
+        .map((tagName) => queries.get(tagName)!);
 
       if (orConditions.length > 0) {
         newFilterConditions.$and!.push({ $or: orConditions });
